@@ -7,7 +7,7 @@ const Title = styled.Text`
 `
 
 const RestaurantCard = styled(Card)`
-    background-color: white;
+    background-color: ${(props) => props.theme.colors.ui.quaternary};
 `
 
 const RestaurantCardCover = styled(Card.Cover)`
