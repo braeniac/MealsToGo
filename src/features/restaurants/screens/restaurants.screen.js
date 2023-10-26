@@ -12,12 +12,16 @@ const SafeArea = styled.SafeAreaView`
 `
 
 const SearchContainer = styled.View`
-    padding: 16px;
+    padding: ${(props) => props.theme.space[3]};
 `
 
 const ListContainer = styled.View`
   flex: 1;
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
+`
+
+const Info = styled.View`
+
 `
 
 export const RestaurantsScreen = () => (
@@ -28,7 +32,9 @@ export const RestaurantsScreen = () => (
             />
         </SearchContainer>
         <ListContainer>
-          <RestaurantInfoCard />
+            <Info>
+                <RestaurantInfoCard />
+            </Info>
         </ListContainer>
     </SafeArea>
 )
