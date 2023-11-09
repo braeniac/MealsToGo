@@ -24,7 +24,7 @@ const Info = styled.View`
 
 `
 
-export const RestaurantsScreen = () => (
+export const RestaurantsScreen = () => ( 
     <SafeArea>
         <SearchContainer>
             <Searchbar 

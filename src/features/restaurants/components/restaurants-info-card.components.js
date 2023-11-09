@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 import { SvgXml } from 'react-native-svg';
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
-import { Spacer } from '../../../components/Spacer';
+import { Spacer } from '../../../components/spacer.component';
 
 const Title = styled.Text`
     font-family: ${(props) => props.theme.fonts.heading};
@@ -61,7 +61,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         address = "100 some random street",
         isOpenNow = true,
         rating = 4,
-        isClosedTemporarily=false,
+        isClosedTemporarily=true,
     } = restaurant; 
 
     const ratingArray = Array.from(new Array(Math.floor(rating)));
