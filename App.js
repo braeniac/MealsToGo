@@ -55,6 +55,7 @@ export default function App() {
         <NavigationContainer>
           <Tab.Navigator
             screenOptions={({ route }) => ({
+              headerShown: false,
               tabBarIcon: ({ focused, color, size }) => {
                 let iconName;
                 if (route.name === 'Map') {
@@ -70,6 +71,7 @@ export default function App() {
               tabBarActiveTintColor: 'tomato',
               tabBarInactiveTintColor: 'gray',
             })}
+            
           >
 
             <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
