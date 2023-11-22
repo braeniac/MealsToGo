@@ -8,6 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import { RestaurantRequest } from './src/services/restaurants/restaurant.service';
 import { ThemeProvider } from "styled-components/native";
 
 import { RestaurantsScreen } from './src/features/restaurants/screens/restaurants.screen'; 
@@ -47,6 +48,8 @@ export default function App() {
   if (!oswaldLoader || !latoLoader) {
     return null; 
   }
+
+  RestaurantRequest(); 
 
   return (
     <>
