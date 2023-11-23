@@ -10,10 +10,15 @@ export const RestaurantRequest = (location="43.653225,-79.383186") => {
     })
 }
 
-const restaurantsTransform = (result) => {
-    const newResult = camelize(result); 
-    //fix camelize
-    return newResult; 
+const restaurantsTransform = ({ results = [ ] }) => {
+    const mappedResults = results.map((restaurant) => {
+        return {
+            ...restaurant, 
+            isOpenNow: restaurant.opening_hours && restaurant.opening_hours.open_now, 
+            isClosedTemporarily: restaurant.business_status === 'CLOSED_TEMPORARILY' 
+        }
+    })
+    return camelize(mappedResults); 
 }
 
 RestaurantRequest()
@@ -21,7 +26,7 @@ RestaurantRequest()
 .then((restaurantResponse) => {
 
     //print camelized results (restaurants at given location)
-    console.log(restaurantResponse); 
+    //console.log(restaurantResponse); 
 }).catch((err) => {
     console.log(err); 
 })
