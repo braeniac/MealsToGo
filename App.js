@@ -8,11 +8,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { RestaurantRequest } from './src/services/restaurants/restaurant.service';
+import { RestaurantContextProvider } from './src/services/restaurants/restaurant.context';
 import { ThemeProvider } from "styled-components/native";
 
 import { RestaurantsScreen } from './src/features/restaurants/screens/restaurants.screen'; 
 import { theme } from "./src/infrastructure/theme";
+
 
 
 function MapScreen() {
@@ -49,12 +50,11 @@ export default function App() {
     return null; 
   }
 
-  RestaurantRequest(); 
-
   return (
     <>
       <ExpoStatusBar style="auto" />
       <ThemeProvider theme={theme}>
+        <RestaurantContextProvider>
         <NavigationContainer>
           <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -82,6 +82,7 @@ export default function App() {
             <Tab.Screen name="Settings" component={SettingsScreen} />
           </Tab.Navigator>
         </NavigationContainer>
+        </RestaurantContextProvider>
       </ThemeProvider>
     </>
   );
