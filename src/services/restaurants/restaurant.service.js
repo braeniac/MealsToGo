@@ -12,6 +12,7 @@ export const RestaurantRequest = (location="43.653225,-79.383186") => {
 
 const restaurantsTransform = (result) => {
     const newResult = camelize(result); 
+    //fix camelize
     return newResult; 
 }
 
