@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'; 
-import { View } from 'react-native'; 
 import { FlatList } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import styled from 'styled-components';
@@ -19,7 +18,16 @@ const FlatListContainer = styled(FlatList).attrs({
       padding: 16
     }
 })``;
+
+const LoadingContainer = styled.View`
+    position: absolute; 
+    top: 50%;
+    left: 50%; 
+`; 
   
+const Loading = styled(ActivityIndicator)`
+    margin-left: -25px; 
+`; 
 
 export const RestaurantsScreen = () => {
 
@@ -28,19 +36,12 @@ export const RestaurantsScreen = () => {
     return(
     <SafeArea>
         {
-
             (isLoading) && (
-                <View style={{ position: 'absolute', top: '50%', left: '50%'}}>
-                    <ActivityIndicator 
-                        size={50}
-                        animating={true}
-                        style={{ marginLeft: -25 }}
-                        color={MD2Colors.red800}
-                    />
-                </View>
+                <LoadingContainer>
+                    <Loading size={50} animating={true} color={MD2Colors.blue300} />
+                </LoadingContainer>
 
             )
-
         }
         <SearchContainer>
             <Searchbar 
