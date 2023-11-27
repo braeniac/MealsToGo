@@ -2,9 +2,9 @@ import React, { useState, useEffect, createContext } from 'react';
 
 import { locationRequest, locationTransform } from './location.service';
 
-export const locationContext = createContext(); 
+export const LocationContext = createContext(); 
 
-export const locationContextProvider = ({ children }) => {
+export const LocationContextProvider = ({ children }) => {
 
     const [isLoading, setIsLoading] = useState(false); 
     const [error, setError] = useState(null); 
@@ -23,12 +23,9 @@ export const locationContextProvider = ({ children }) => {
         })
     }
 
-    useEffect(() => {
-        onSearch(keyword)
-    }, [keyword])
 
     return(
-        <locationContext.Provider
+        <LocationContext.Provider
             value={{
                 isLoading, 
                 error, 
@@ -38,7 +35,7 @@ export const locationContextProvider = ({ children }) => {
             }}
         >
             {children}
-        </locationContext.Provider>
+        </LocationContext.Provider>
     )
 
 }

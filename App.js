@@ -9,7 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { RestaurantContextProvider } from './src/services/restaurants/restaurant.context';
-import { locationContextProvider } from './src/services/location/locaiton.context'; 
+import { LocationContextProvider } from './src/services/location/locaiton.context'; 
 import { ThemeProvider } from "styled-components/native";
 
 import { RestaurantsScreen } from './src/features/restaurants/screens/restaurants.screen'; 
@@ -55,7 +55,7 @@ export default function App() {
     <>
       <ExpoStatusBar style="auto" />
       <ThemeProvider theme={theme}>
-        <locationContextProvider>
+        <LocationContextProvider>
         <RestaurantContextProvider>
         <NavigationContainer>
           <Tab.Navigator
@@ -85,7 +85,7 @@ export default function App() {
           </Tab.Navigator>
         </NavigationContainer>
         </RestaurantContextProvider>
-        </locationContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
     </>
   );
